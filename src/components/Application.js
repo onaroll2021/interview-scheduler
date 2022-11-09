@@ -1,8 +1,38 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+import DayList from "./DayList";
+import Appointment from "components/Appointment/index";
 import "components/Application.scss";
+import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "../helpers/selectors";
+import InterviewerList from "./InterviewerList";
+import useApplicationData from "../hooks/useApplicationData"
+import axios from 'axios';
 
 export default function Application(props) {
+  const {
+    state,
+    setDay,
+    bookInterview,
+    cancelInterview
+  } = useApplicationData();
+
+  const appointments = getAppointmentsForDay(state, state.day);
+
+  const schedule = appointments.map((appointment) => {
+    const interview = getInterview(state, appointment.interview);
+    const interviewers = getInterviewersForDay(state,state.day);
+    return (
+      <Appointment
+        key={appointment.id}
+        id={appointment.id}
+        time={appointment.time}
+        interview={interview}
+        interviewers={interviewers}
+        bookInterview={bookInterview}
+        cancelInterview={cancelInterview}
+      />
+    );
+  });
+
   return (
     <main className="layout">
       <section className="sidebar">
@@ -12,7 +42,13 @@ export default function Application(props) {
           alt="Interview Scheduler"
         />
         <hr className="sidebar__separator sidebar--centered" />
-        <nav className="sidebar__menu"></nav>
+        <nav className="sidebar__menu">
+          <DayList
+            days={state.days}
+            value={state.day}
+            onChange={setDay}
+          />
+        </nav>
         <img
           className="sidebar__lhl sidebar--centered"
           src="images/lhl.png"
@@ -20,7 +56,8 @@ export default function Application(props) {
         />
       </section>
       <section className="schedule">
-        {/* Replace this with the schedule elements durint the "The Scheduler" activity. */}
+      {schedule}
+      <Appointment key="last" time="5pm" />
       </section>
     </main>
   );
