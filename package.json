@@ -13,6 +13,7 @@
     "yarn": "^1.22.19"
   },
   "scripts": {
+    "cypress": "cypress open -P .",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
