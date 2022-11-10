@@ -23,18 +23,18 @@ describe("Application", () => {
 
   it("dafaults to Monday and changes the schedule when a new day is selected", async () => {
     const { getByText } = render(<Application />);
-  
+
     await waitForElement(() => getByText("Monday"));
 
     expect(getByText("Archie Cohen")).toBeInTheDocument();
-  
+
     fireEvent.click(getByText("Tuesday"));
-  
+
     expect(getByText("Leopold Silvers")).toBeInTheDocument();
   });
   it("loads data, books an interview and reduces the spots remaining for Monday by 1", async () => {
 
-    const { container,debug } = render(<Application />);
+    const { container, debug } = render(<Application />);
 
     await waitForElement(() => getByText(container, "Archie Cohen"));
 
@@ -56,8 +56,8 @@ describe("Application", () => {
     await waitForElement(() => queryByText(appointment, "Lydia Miller-Jones"));
 
     const day = getAllByTestId(container, "day").find(day => {
-      return queryByText(day, "Monday")
-    })
+      return queryByText(day, "Monday");
+    });
 
     expect(getByText(day, "no spots remaining")).toBeInTheDocument();
   });
