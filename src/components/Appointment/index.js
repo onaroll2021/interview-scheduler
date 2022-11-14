@@ -1,5 +1,5 @@
 
-import React, { Fragment } from 'react';
+import React from 'react';
 import "./styles.scss";
 import Header from "./Header";
 import Empty from "./Empty";
