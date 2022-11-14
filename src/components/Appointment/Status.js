@@ -1,5 +1,6 @@
 import React from "react";
 
+// create React component/transition-mode confirm
 export default function Confirm(props) {
   return (
     <main className="appointment__card appointment__card--status">

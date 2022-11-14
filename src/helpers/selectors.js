@@ -1,3 +1,4 @@
+// create helper function to get appointment info for component Appointment
 export function getAppointmentsForDay(state, day) {
   const selectedDays = state.days.filter(stateDay => stateDay.name === day);
   if (state.days.length === 0 || selectedDays.length === 0) {
@@ -14,6 +15,7 @@ export function getAppointmentsForDay(state, day) {
   return filteredAppointments;
 }
 
+// create helper function to get interview info for component Appointment
 export function getInterview(state, interview) {
   const interviewObj = {};
   if (interview === null) {
@@ -25,6 +27,7 @@ export function getInterview(state, interview) {
   return interviewObj;
 }
 
+// create helper function to get interviewers info for component Appointment
 export function getInterviewersForDay(state, name) {
   const filteredDays = state.days.filter(day => day.name === name);
   if (state.days.length === 0 || filteredDays.length === 0) {

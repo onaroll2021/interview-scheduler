@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../Button";
-
+// create React component/transition-mode Confirm
 export default function Confirm(props) {
   return(
     <main className="appointment__card appointment__card--confirm">

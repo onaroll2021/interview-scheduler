@@ -2,6 +2,7 @@ import React from "react";
 import classnames from 'classnames';
 import "components/InterviewerListItem.scss";
 
+// create React component InterviewListItem
 export default function InterviewerListItem(props) {
 
   const { name, avatar, selected } = props;

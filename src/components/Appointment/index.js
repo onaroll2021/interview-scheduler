@@ -10,7 +10,9 @@ import Error from "./Error";
 import useVisualMode from "../../hooks/useVisualMode";
 import Form from "./Form";
 
+// 
 export default function Appointment(props) {
+  // define modes, import state: mode, helper function: transition and back
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
   const CREATE = "CREATE";
@@ -23,7 +25,7 @@ export default function Appointment(props) {
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
-  //remove function
+  //Create event handler(remove appointment) used inside appointment component
   function remove() {
     transition(DELETING, true);
     props.cancelInterview(props.id)

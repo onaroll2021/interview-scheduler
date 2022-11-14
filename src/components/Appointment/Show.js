@@ -1,5 +1,5 @@
 import React from "react";
-
+// create React component/transition-mode Show
 export default function Show(props) {
   return (
     <main className="appointment__card appointment__card--show">

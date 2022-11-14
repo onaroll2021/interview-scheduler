@@ -1,5 +1,5 @@
 import React from "react";
-
+// create React component/transition-mode Empty
 export default function Empty(props) {
   return (
     <main className="appointment__add" >

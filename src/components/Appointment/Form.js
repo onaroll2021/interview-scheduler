@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import InterviewerList from "components/InterviewerList";
 import Button from "components/Button";
-
+// create React component/transition-mode Form
 export default function Form(props) {
+  // create state for student/interviewer/error
   const [student, setStudent] = useState(props.student || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
   const [error, setError] = useState("");
@@ -14,6 +15,7 @@ export default function Form(props) {
     reset();
     props.onCancel();
   };
+  // to validate the name input can not be blank
   function validate() {
     if (student === "") {
       setError("Student name cannot be blank");

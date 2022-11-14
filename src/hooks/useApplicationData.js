@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 
 export default function useApplicationData() {
-
+  // create setState
   const [state, setState] = useState({
     day: "Monday",
     days: [],
     appointments: {},
     interviewers: {}
   });
-
+  // create setDay for rendering certain day
   const setDay = day => {
     return setState({ ...state, day });
   };
@@ -26,6 +26,7 @@ export default function useApplicationData() {
     return daysOfWeek[day];
   }
 
+  // create useEffect to render content after state changes
   useEffect(() => {
     const dayURL = "/api/days";
     const appointmentURL = "/api/appointments";
@@ -38,7 +39,8 @@ export default function useApplicationData() {
       setState(prev => ({ ...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data }));
     });
   }, []);
-
+  
+  // create helper function: bookinterview
   function bookInterview(id, interview) {
 
     const appointment = {
@@ -81,7 +83,7 @@ export default function useApplicationData() {
         });
       });
   };
-
+  //create helper function: cancelinterview
   function cancelInterview(id) {
 
     const appointment = {

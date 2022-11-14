@@ -5,7 +5,10 @@ import "components/Application.scss";
 import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "../helpers/selectors";
 import useApplicationData from "../hooks/useApplicationData";
 
+// Create React component Application
 export default function Application(props) {
+
+//import state and helper functions  
   const {
     state,
     setDay,
@@ -15,6 +18,7 @@ export default function Application(props) {
 
   const appointments = getAppointmentsForDay(state, state.day);
 
+  //map over the appointments and render appointment component
   const schedule = appointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview);
     const interviewers = getInterviewersForDay(state, state.day);
