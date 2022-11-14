@@ -10,6 +10,7 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts": "3.4.4",
+    "react-test-renderer": "^16.9.0",
     "yarn": "^1.22.19"
   },
   "scripts": {
