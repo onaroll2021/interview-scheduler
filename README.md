@@ -21,6 +21,13 @@ npm test
 ```sh
 npm run storybook
 ```
+## API server & Database setup
+The server and client must run for the full functionality.
+  - Fork and clone the scheduler-api server [here](https://github.com/onaroll2021/scheduler-api)
+  - Follow the steps outlined in README to install and setup the database
+  - Fork and clone this repo
+  - Navigate to the root directory and install dependencies with npm install
+  - Once you have the database setup and the scheduler-api server running, run the following command from the root directory of the project npm start
 
 ## Screenshots
 
