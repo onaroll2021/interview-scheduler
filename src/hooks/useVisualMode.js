@@ -12,10 +12,18 @@ export default function useVisualMode(initial) {
   };
 // create helper function to back to previous mode
   function back() {
+    console.log("history", history);
+    console.log("mode", mode);
     if (history.length > 1) {
       const newHistory = history.slice(0, -1);
-      setMode(newHistory[newHistory.length - 1]);
-      setHistory(newHistory);
+      const newHistoryTwo = newHistory.slice(0, -1);
+      if(newHistory[newHistory.length - 1] === "SAVING" || newHistory[newHistory.length - 1] === "DELETING") {
+        setMode(newHistoryTwo[newHistoryTwo.length - 1]);
+        setHistory(newHistoryTwo);
+      } else {      
+        setMode(newHistory[newHistory.length - 1]);
+        setHistory(newHistory);
+      }
     }
   };
 
