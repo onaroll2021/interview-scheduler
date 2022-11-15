@@ -1,6 +1,7 @@
 import React from "react";
 // create React component/transition-mode Show
 export default function Show(props) {
+  console.log("props", props)
   return (
     <main className="appointment__card appointment__card--show">
       <section className="appointment__card-left">
